@@ -6,10 +6,10 @@ import io
 import os
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    return jsonify({'message': 'Hello World!'})
-@app.route('/process-image', methods=['POST'])
+# @app.route('/', methods=['GET'])
+# def index():
+#     return jsonify({'message': 'Hello World!'})
+@app.route('/', methods=['POST'])
 def process_image():
     if 'file' not in request.files:
         return 'No file part', 400
