@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, jsonify
 import rembg
 import numpy as np
 from PIL import Image
@@ -6,6 +6,9 @@ import io
 import os
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def index():
+    return jsonify({'message': 'Hello World!'})
 @app.route('/process-image', methods=['POST'])
 def process_image():
     if 'file' not in request.files:
